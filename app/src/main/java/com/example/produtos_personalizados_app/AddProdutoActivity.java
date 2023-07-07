@@ -15,58 +15,55 @@ import android.widget.Toast;
 
 public class AddProdutoActivity extends AppCompatActivity {
 
-    private EditText nome;
-    private EditText descricao;
-    private EditText cor;
-    private EditText tamanho;
-    private EditText valor;
+     EditText nome;
+     EditText descricao;
+     EditText cor;
+     EditText tamanho;
+     EditText valor;
+     Button salvar;
 
     private ConexãoBD ConexãoDB;
     private SQLiteDatabase database;
-    private ContentValues values;
+
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_produto);
 
         ConexãoDB = new ConexãoBD(this);
         database = ConexãoDB.getWritableDatabase();
 
-        Button btsalvar = findViewById(R.id.btsalvar);
-        btsalvar.setOnClickListener(new View.OnClickListener() {
+        nome = findViewById(R.id.addTextNome);
+        descricao = findViewById(R.id.addTextdescricao);
+        cor = findViewById(R.id.addTextCor);
+        tamanho = findViewById(R.id.addTexTam);
+        valor = findViewById(R.id.addTextValor);
+        salvar = findViewById(R.id.btsalvar);
+
+        salvar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                salvarProduto();
+            public void onClick(View view) {
+                String Nome = nome.getText().toString();
+                String Tamanho = tamanho.getText().toString();
+                String Descricao = descricao.getText().toString();
+                String Cor = cor.getText().toString();
+                double Valor = Double.parseDouble(valor.getText().toString());
+
+                Intent intent = new Intent(AddProdutoActivity.this, Produto.class);
+                intent.putExtra("nome", Nome);
+                intent.putExtra("tamanho", Tamanho);
+                intent.putExtra("descricao", Descricao);
+                intent.putExtra("cor", Cor);
+                intent.putExtra("valor", Valor);
+                startActivity(intent);
+
+                Toast.makeText(AddProdutoActivity.this, "Produto Salvo", Toast.LENGTH_SHORT).show();
             }
         });
 
-    }
 
-    private void salvarProduto() {
-
-        String Nome = nome.getText().toString();
-        String Tamanho = tamanho.getText().toString();
-        String Descricao = descricao.getText().toString();
-        String Cor = cor.getText().toString();
-        double Valor = Double.parseDouble(valor.getText().toString());
-
-        Intent intent = new Intent(AddProdutoActivity.this, Produto.class);
-        intent.putExtra("nome", Nome);
-        intent.putExtra("tamanho", Tamanho);
-        intent.putExtra("descricao", Descricao);
-        intent.putExtra("cor", Cor);
-        intent.putExtra("valor", Valor);
-        startActivity(intent);
-
-        long idInserido = database.insert("produto", null, values);
-
-        if (idInserido != -1) {
-            Toast.makeText(this, "Produto salvo com sucesso", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Falha ao salvar o produto", Toast.LENGTH_SHORT).show();
-        }
     }
 
 }

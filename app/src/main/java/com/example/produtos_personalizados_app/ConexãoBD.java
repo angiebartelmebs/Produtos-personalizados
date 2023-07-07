@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class ConexãoBD extends SQLiteOpenHelper {
@@ -16,7 +17,7 @@ public class ConexãoBD extends SQLiteOpenHelper {
         }
 
         @Override
-        public void onCreate(SQLiteDatabase db) {
+        public void onCreate(@NonNull SQLiteDatabase db) {
             // Crie a tabela para armazenar os produtos
             String createTableQuery = "CREATE TABLE produto (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, descricao TEXT, tamanho TEXT, cor TEXT, valor REAL)";
             db.execSQL(createTableQuery);

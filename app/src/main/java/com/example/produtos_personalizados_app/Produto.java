@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class Produto extends AppCompatActivity {
 
-    private LinearLayout llProduto;
+    LinearLayout llProduto;
 
     private Integer id;
     private String Nome;
@@ -73,6 +73,29 @@ public class Produto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produto);
 
+        View v = findViewById(R.id.btadd);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                /* Codigo para navegacao para a tela de add produto ao clicar no botão de incerir produto */
+                Intent nav = new Intent(view.getContext(),AddProdutoActivity.class);
+                startActivity(nav);
+            }
+        });
+
+
+        View e = findViewById(R.id.btedit);
+        e.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                /* Codigo para navegacao para a tela de editar produto ao clicar no botão de Editar produto */
+                Intent nav = new Intent(view.getContext(),EditarProdutoActivity.class);
+                startActivity(nav);
+            }
+        });
+
         Button editButton = findViewById(R.id.btedit);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,36 +136,6 @@ public class Produto extends AppCompatActivity {
         llProduto.addView(valorTextView);
 
 
-
-
-        View v = findViewById(R.id.btadd);
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                /* Codigo para navegacao para a tela de add produto ao clicar no botão de incerir produto */
-                Intent nav = new Intent(view.getContext(),AddProdutoActivity.class);
-                startActivity(nav);
-            }
-        });
-
-
-        View e = findViewById(R.id.btedit);
-        e.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                /* Codigo para navegacao para a tela de editar produto ao clicar no botão de Editar produto */
-                Intent nav = new Intent(view.getContext(),EditarProdutoActivity.class);
-                startActivity(nav);
-            }
-        });
-        llProduto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editarProduto();
-            }
-        });
 
     }
 
