@@ -104,7 +104,7 @@ public class Produto extends AppCompatActivity {
             }
         });
 
-
+        // logica para após o produto ser salvo redirecionar a produtos e apresentar no linear layout
         llProduto = findViewById(R.id.llProduto);
 
         Intent intent = getIntent();
@@ -140,8 +140,8 @@ public class Produto extends AppCompatActivity {
     }
 
     private void editarProduto() {
-// Implemente a lógica para editar o produto
-        // Por exemplo, inicie uma nova atividade para edição do produto com os dados atuais passados como extras
+        //  lógica para editar o produto
+
         Intent intent = new Intent(Produto.this, EditarProdutoActivity.class);
         intent.putExtra("nome", Nome);
         intent.putExtra("tamanho", Tamanho);

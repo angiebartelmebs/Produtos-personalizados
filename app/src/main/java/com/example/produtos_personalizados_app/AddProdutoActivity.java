@@ -41,7 +41,7 @@ public class AddProdutoActivity extends AppCompatActivity {
         tamanho = findViewById(R.id.addTexTam);
         valor = findViewById(R.id.addTextValor);
         salvar = findViewById(R.id.btsalvar);
-
+         // Ilógica para inserir o produto
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +50,7 @@ public class AddProdutoActivity extends AppCompatActivity {
                 String Descricao = descricao.getText().toString();
                 String Cor = cor.getText().toString();
                 double Valor = Double.parseDouble(valor.getText().toString());
-
+                //inserir os produtos no linear layout na activity de produto
                 Intent intent = new Intent(AddProdutoActivity.this, Produto.class);
                 intent.putExtra("nome", Nome);
                 intent.putExtra("tamanho", Tamanho);
