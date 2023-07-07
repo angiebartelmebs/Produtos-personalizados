@@ -3,6 +3,8 @@ package com.example.produtos_personalizados_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class EditarProdutoActivity extends AppCompatActivity {
 
@@ -11,4 +13,6 @@ public class EditarProdutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_produto);
     }
+
+
 }

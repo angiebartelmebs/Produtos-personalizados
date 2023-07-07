@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -72,6 +73,13 @@ public class Produto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produto);
 
+        Button editButton = findViewById(R.id.btedit);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editarProduto();
+            }
+        });
 
 
         llProduto = findViewById(R.id.llProduto);
@@ -129,7 +137,25 @@ public class Produto extends AppCompatActivity {
                 startActivity(nav);
             }
         });
+        llProduto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editarProduto();
+            }
+        });
 
+    }
+
+    private void editarProduto() {
+// Implemente a lógica para editar o produto
+        // Por exemplo, inicie uma nova atividade para edição do produto com os dados atuais passados como extras
+        Intent intent = new Intent(Produto.this, EditarProdutoActivity.class);
+        intent.putExtra("nome", Nome);
+        intent.putExtra("tamanho", Tamanho);
+        intent.putExtra("descricao", Descricao);
+        intent.putExtra("cor", Cor);
+        intent.putExtra("valor", Valor);
+        startActivity(intent);
 
     }
 
