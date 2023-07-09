@@ -22,6 +22,16 @@ public class MainActivity extends AppCompatActivity {
                startActivity(nav);
            }
        });
+
+        View o = findViewById(R.id.btOrcamento);
+        o.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /* Codigo para navegacaoo para a tela de produto ao clicar no botão de produto */
+                Intent nav = new Intent(view.getContext(),Orcamento.class);
+                startActivity(nav);
+            }
+        });
     }
 }
 

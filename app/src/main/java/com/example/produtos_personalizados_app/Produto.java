@@ -104,6 +104,9 @@ public class Produto extends AppCompatActivity {
             }
         });
 
+
+
+
         // logica para após o produto ser salvo redirecionar a produtos e apresentar no linear layout
         llProduto = findViewById(R.id.llProduto);
 
