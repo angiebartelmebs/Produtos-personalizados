@@ -41,7 +41,7 @@ public class AddProdutoActivity extends AppCompatActivity {
         tamanho = findViewById(R.id.addTexTam);
         valor = findViewById(R.id.addTextValor);
         salvar = findViewById(R.id.btsalvar);
-         // Ilógica para inserir o produto
+         // lógica para salva e inserir
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

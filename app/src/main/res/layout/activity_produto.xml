@@ -36,14 +36,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btadd" />
 
-    <Button
-        android:id="@+id/btdel"
-        android:layout_width="189dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
-        android:text="Excluir Produto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btedit" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
